@@ -1,0 +1,49 @@
+.header {
+	//height: 100px;
+	background: #ffffff;
+	//border-bottom: 2px solid $cor1;
+}
+
+.breadcrumbs {
+	width: 100%;
+	display: block;
+	margin: 0px 0 15px;
+
+	ul {
+
+		li {
+			display: inline-block;
+			font-size: $font-size;
+			line-height: 1.25rem;
+			font-weight: $light;
+
+			&:after {
+				content: "\f054";
+				font-size: .7rem;
+				line-height: 1.37rem;
+				font-family: 'Font Awesome 5 Free';
+				font-weight: 900;
+				display: inline;
+				padding: 0 1px 0 5px;
+				//opacity: .7;
+			}
+
+			&:last-child {
+				&:after {
+					display: none;
+				}
+			}
+		}
+
+		a {
+			display: inline;
+			font-size: $font-size;
+			line-height: $font-size;
+			font-weight: $regular;
+
+			&:hover {
+				color: $cor1;
+			}
+		}
+	}
+}

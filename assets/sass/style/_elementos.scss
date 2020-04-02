@@ -1,0 +1,443 @@
+strong {
+	font-weight: $bold;
+}
+
+.bold {
+	font-weight: $bold;
+}
+
+.medium {
+	font-weight: $medium;
+}
+
+h1, h2, h3, h4 {
+	@include animacao;
+}
+
+h1 {
+	font-size: 2rem;
+	line-height: 2.25rem;
+	font-weight: $bold;
+	display: block;
+
+	&.logo {
+		width: 200px;
+		display: block;
+		margin: 20px auto;
+
+		a {
+			display: block;
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+}
+
+
+h2 {
+	font-size: 2rem;
+	line-height: 2.25rem;
+	font-weight: $bold;
+	display: block;
+	@include clear;
+}
+
+h3 {
+	font-weight: $bold;
+	font-size: 1.125rem;
+	line-height: 1.25rem;
+
+	@include m420 {
+		padding: 0;
+		text-align: center;
+		font-size: 2.25rem;
+		line-height: 2.25rem;
+	}
+}
+
+h4 {
+	font-weight: $regular;
+	font-size: $font-size;
+	line-height: $font-size+.25;
+	color: $cor-txt;
+
+/*	@include m420 {
+		font-size: 2.25rem;
+		line-height: 3rem;
+	} em archive.scss linha 83*/
+
+}
+
+h5 {
+
+}
+
+h6 {
+
+}
+
+p {
+	font-size: $font-size;
+	line-height: $font-size+.5;
+	font-weight: $light;
+	padding-bottom: 15px;
+	@include box-sizing;	
+
+	&:last-child {
+		padding-bottom: 0;
+	}
+
+	a {
+		font-weight: $light;
+		color: $rosa;
+
+		&:hover {
+			color: darken($rosa, 10%);
+			text-decoration: underline;
+		}
+	}
+
+	&.sub-tituto {
+		font-size: 1rem;
+		line-height: 1.5rem;
+		width: 100%;
+		max-width: 800px;
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+		
+		&.mini {
+			max-width: 650px;
+		}
+
+		a {
+			font-size: 1rem;
+			line-height: 1.5rem;
+			color: $cor3;
+		}
+	}
+
+	&.text-destaque {
+		font-size: 1.125rem;
+		line-height: 1.125rem;
+		width: 100%;
+		max-width: 650px;
+		display: block;
+		margin: 0 auto;
+
+		&.grande {
+			max-width: 780px;
+			line-height: 1.5rem;
+		}
+	}
+
+	&.mini {
+		font-size: 1rem;
+		line-height: 1.5rem;
+
+		a {
+			font-size: 1rem;
+			line-height: 1.5rem;
+		}
+
+		i {
+			font-size: 1rem;
+			line-height: 1.5rem;
+		}
+	}
+
+	@include m420 {
+		font-size: 1.125rem;
+		line-height: 1.5rem;
+
+		&.p-mobile, &.sub-tituto, &.mini, .text-destaque, &.grande {
+			font-size: 1.25rem;
+			line-height: 1.75rem; 
+			width: 100%;
+			padding: 0 50px;
+		}
+
+		&.center:not(.p-single) {
+			text-align: left;
+		}
+	}
+	
+}
+
+.justify-center {
+	text-align: justify;  
+	-moz-text-align-last: center;
+	text-align-last: center;
+}
+
+.justify {
+	text-align: justify;  
+}
+
+.center {
+	text-align: center;
+}
+
+.left {
+	text-align: left!important;
+}
+
+.right {
+	float: right;
+}
+
+.no-margim, .no-margin {
+	margin: 0!important;
+}
+
+.no-margin-top {
+	margin-top: 0px!important;
+}
+
+.margin-top-10 {
+	margin-top: 10px;
+}
+
+.margin-bottom-10 {
+	margin-bottom: 10px;
+}
+
+
+.margin-top-15 {
+	margin-top: 15px;
+}
+
+.margin-top-20 {
+	margin-top: 20px;
+}
+.margin-bottom-20 {
+	margin-bottom: 20px;
+}
+
+.margin-top-30 {
+	margin-top: 30px;
+}
+
+.margin-top-40 {
+	margin-top: 40px;
+}
+
+
+.margin-bottom-40 {
+	margin-bottom: 40px;
+}
+
+.margin-top-60 {
+	margin-top: 60px;
+}
+
+.margin-bottom-60 {
+	margin-bottom: 60px;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.no-padding-bottom {
+	padding-bottom: 0;
+}
+
+.no-padding-top {
+	padding-top: 0;
+}
+
+.padding-top-20 {
+	padding-top: 20px;
+}
+.padding-bottom-20 {
+	padding-bottom: 20px;
+}
+
+.padding-top-40 {
+	padding-top: 40px;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.no-uppercase {
+	text-transform: none!important;
+
+	span {
+		text-transform: none!important;
+	}
+}
+
+a {
+	text-decoration: none;
+	@include animacao;
+
+	i {
+		@include animacao;
+	}
+
+	&:hover {
+		text-decoration: none;		
+	}
+
+	&.link {
+		display: inline-block;
+	}
+
+	&.all-post {
+		color: $cor1;
+		font-weight: $bold;
+		font-size: 1.125rem;
+		float: right;
+		border: 2px solid $cor1;
+		border-radius: 20px;
+		padding: 0 1.25rem;
+		line-height: 36px;
+		position: relative;
+		top: -7px;
+
+		&:hover {
+			background-color: $cor1;
+			color: #ffffff;
+		}
+	}
+
+	&.underline {
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.data {
+	line-height: 1.75rem;
+	display: block;
+	font-weight: 300;
+}
+
+.label {
+	color: #ffffff;
+	display: inline-block;
+	font-size: .6rem;
+	text-transform: uppercase;
+	padding: 5px 10px;
+	font-weight: $regular;
+	letter-spacing: 1px;
+
+	&.grande {
+		//height: 46px;
+		//line-height: 46px;
+		//color: #ffffff;
+		//font-weight: $bold;
+		font-size: .75rem;
+		padding: 10px 20px;
+	}
+
+	&.nome-area {
+		position: relative;
+		right: 0;
+		top: 0;
+		height: 46px;
+		line-height: 46px;
+		color: #ffffff;
+		font-weight: $bold;
+		font-size: 1.06rem;
+		text-align: center;
+		text-transform: uppercase;
+		padding: 0 25px;
+		border-radius: 5px;
+	}
+}
+
+
+.paginacao {
+	margin: 50px auto 0;
+	text-align: center;
+
+	li {
+		display: inline-block;
+		margin: 0px;
+
+		span, a {
+			display: block;
+			font-size: 1.225rem;
+			font-weight: $medium;
+			line-height: 40px;
+			height: 40px;
+			padding: 0 10px;
+		}
+
+		a {
+			color: $verde;
+			@include animacao;
+
+			.fa {
+				font-size: 1.225rem;
+				font-weight: $medium;
+				color: $verde;
+			}
+
+			&:hover {
+				background-color: rgba($verde, .5);
+			}
+		}
+
+		span {
+			background-color: $verde;
+			color: #ffffff;
+		}
+	}
+}
+
+.tags{
+	display: block;
+	width: 100%;
+
+	li {
+		display: inline-block;
+
+		.label {
+			margin: 0;
+			color: $cor-txt;
+			border: 1px solid $cor-txt;
+			opacity: .6;
+
+			&:hover {
+				color: $laranja;
+			}
+		}
+	}
+}
+
+
+.redes-sociais {
+	i {
+		font-size: 1.31rem;
+		top: 2px;
+		padding-right: 10px;
+	}
+
+	a {
+		&:last-child {
+			i {
+				padding-right: 0;
+			}
+		}
+	}
+}
+
+// ICONES
+.fa-user-lock {
+	font-size: 0.8rem;
+	top: -1px;
+	padding-right: 7px;
+}
+
+.fa-search {
+	font-size: 1.4rem;
+	top: 2px;
+}

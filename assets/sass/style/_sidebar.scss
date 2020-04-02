@@ -1,0 +1,58 @@
+.sidebar {
+	position: relative;
+
+	.container-sidebar {
+		position: absolute;
+		top: 0;
+		//include animacao;
+
+		&.fixed {
+			position: fixed;
+			top: 50px;
+		}
+	}
+
+	.box-sidebar {
+		padding: 20px 30px;
+		border-radius: 4px;
+		margin-top: 20px;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	.assuntos {
+		a {
+			margin-bottom: 3px;
+		}
+	}
+}
+
+
+.assuntos {
+	margin-top: 15px;
+
+	i {
+		display: inline-block;
+		font-size: 8px;
+		color: $cor1;
+		display: none;
+	}
+
+	a {
+		background-color: $bgclaro;
+		border: 1px solid $bgclaro;
+		display: inline-block;
+		border-radius: 5px;	
+		line-height: 24px;
+		padding: 0 10px;
+		font-size: .85rem;
+
+		&:hover {
+			background-color: transparent;
+			border-color: $cor1;
+			color: $cor1;
+		}
+	}
+}

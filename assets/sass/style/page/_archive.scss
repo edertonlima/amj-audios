@@ -1,0 +1,168 @@
+.audio {
+
+	&.item-list, &.item-det {
+		display: block;
+		background: #ffffff;
+		padding: 20px 30px; 
+		position: relative;
+		border-radius: 5px;
+
+		.fa-microphone, .fa-microphone-alt {
+			position: absolute;
+			font-size: 2.5rem;
+			left: 30px;
+			top: 20px;
+		}
+
+		.data {
+			font-size: .85rem;
+			line-height: 1rem; 
+		}
+
+		h2, h1 {
+			padding-left: 50px;
+			position: relative;
+		}
+	}
+
+	&.item-list {
+		margin-top: 20px;
+
+		&:first-child {
+			//margin-top: 0px;
+		}
+
+		.data {
+			position: absolute;
+			top: 30px;
+			right: 30px;
+			text-align: right;
+		}
+
+		.cont-list {
+			margin-top: 15px;
+			display: block;
+			width: 100%;
+			overflow: hidden;
+		}
+
+		h2 {
+			padding-right: 135px;
+		}
+
+		p {
+			margin-bottom: 5px;
+		}
+
+		.assuntos {
+			float: left;
+			margin-top: 15px;
+
+			i {
+				display: inline-block;
+				font-size: 8px;
+				color: $cor1;
+				display: none;
+			}
+
+			a {
+				background-color: $bgclaro;
+				border: 1px solid $bgclaro;
+				display: inline-block;
+				border-radius: 5px;	
+				line-height: 24px;
+				padding: 0 10px;
+				font-size: .85rem;
+
+				&:hover {
+					background-color: transparent;
+					border-color: $cor1;
+					color: $cor1;
+				}
+			}
+		}
+
+		.button {
+			margin-top: 11px;
+			float: right;
+		}
+
+		&:hover {
+			h2 {
+				color: $cor1;
+			}
+		}
+	}
+
+	&.item-det {
+		.data {
+			padding-left: 50px;
+			margin: 10px 0 0;
+		}
+
+		.assuntos {
+			display: inline-block;
+			//padding-left: 50px;
+			margin: 20px 0 0;
+		}
+
+		.compartilhar {
+			float: right;
+			margin-top: 20px;
+
+			span {
+				padding-right: 5px;
+			}
+
+			a {
+				padding: 0 5px;
+
+				i {
+					font-size: 1.25rem;
+				}
+
+				&:hover {
+					i {
+						color: $cor1;
+					}
+				}
+			}
+		}
+
+		iframe {
+			margin: 40px 0;
+		}
+
+
+	}
+}
+
+.ultimos-audios {
+	margin-top: 50px;
+
+	h3 {
+		padding: 0 0 20px 30px;
+	}
+
+	h2 {
+		font-size: 1.35rem;
+		line-height: 1.75rem;
+	}
+
+	.item-det {
+		&:hover {
+			h2 {
+				color: $cor1;
+			}
+		}
+
+		.assuntos {
+			padding-left: 50px;
+		}
+	}
+}
+
+.mais {
+	display: block;
+	margin: 40px auto 0;
+}

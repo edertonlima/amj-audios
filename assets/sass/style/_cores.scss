@@ -1,0 +1,266 @@
+// BACGROUND
+.bg-cor1 {
+	background-color: $cor1;
+
+	h3 {
+		color: #ffffff;
+	}
+}
+.bg-cor3 {
+	background-color: $cor3;
+}
+.bg-cinza {
+	background: #f2f2f2;
+}
+
+.bg-branco {
+	background-color: #ffffff;
+}
+
+.bg-azul {
+	background: rgba($azul, .25);
+	
+	&.bg-total {
+		background: $azul;
+	}
+}
+
+.bg-laranja {
+	background: rgba($laranja, .25);
+	
+	&.bg-total {
+		background: $laranja;
+	}
+}
+
+.bg-claro {
+	background-color: $bgclaro;
+}
+
+.bg-escuro {
+	background-color: $bgescuro;
+}
+
+.branco {
+	color: #ffffff;
+}
+
+.button {
+	&.amarelo {
+		background-color: $amarelo;
+		color: #ffffff;
+		border-color: $amarelo;
+
+		&:hover {
+			background-color: darken($amarelo, 10%);
+			border-color: darken($amarelo, 10%);
+		}
+	}
+
+	&.vermelho {
+		background-color: $vermelho;
+		color: #ffffff;
+		border-color: $vermelho;
+
+		&:hover {
+			background-color: darken($vermelho, 10%);
+			border-color: darken($vermelho, 10%);
+		}
+	}
+
+	&.laranja {
+		background-color: $laranja;
+		color: #ffffff;
+		border-color: $laranja;
+
+		&:hover {
+			background-color: darken($laranja, 10%);
+			border-color: darken($laranja, 10%);
+		}
+	}
+
+	&.azul {
+		background-color: $azul;
+		color: #ffffff;
+		border-color: $azul;
+
+		&:hover {
+			background-color: darken($azul, 10%);
+			border-color: darken($azul, 10%);
+		}
+
+		&.transparent {
+			color: $azul;
+			background: transparent;
+
+			&:hover {
+				background-color: $azul;
+				color: #ffffff;
+			}
+		}
+	}
+
+	&.cinza {
+		background-color: $cinza;
+		color: darken($cinza, 30%);
+		border-color: $cinza;
+
+		&:hover {
+			background-color: darken($cinza, 10%);
+			border-color: darken($cinza, 10%);
+		}
+
+		&.transparent {
+			color: darken($cinza, 20%);
+			background: transparent;
+
+			&:hover {
+				background-color: $cinza;
+				color: darken($cinza, 30%);
+			}
+		}
+	}
+
+	&.cor1 {
+		background-color: $cor1;
+		color: #ffffff;
+		border-color: $cor1;
+
+		i {
+			color: #ffffff;
+		}
+
+		&:hover {
+			background-color: darken($cor1, 10%);
+			border-color: darken($cor1, 10%);
+			color: #ffffff;
+		}
+
+		&.transparent {
+			color: $cor1;
+			background: transparent;
+
+			i {
+				color: $cor1;
+			}
+
+			&:hover {
+				background-color: $cor1;
+				border-color: $cor1;
+				color: #ffffff;
+
+				i {
+					color: #ffffff;
+				}
+			}
+		}
+	}
+
+	&.cor3 {
+		background-color: $cor3;
+		color: #ffffff;
+		border-color: $cor3;
+
+		i {
+			color: #ffffff;
+		}
+
+		&:hover {
+			background-color: darken($cor3, 10%);
+			border-color: darken($cor3, 10%);
+			color: #ffffff;
+		}
+
+		&.transparent {
+			color: $cor3;
+			background: transparent;
+
+			i {
+				color: $cor3;
+			}
+
+			&:hover {
+				background-color: $cor3;
+				border-color: $cor3;
+				color: #ffffff;
+
+				i {
+					color: #ffffff;
+				}
+			}
+		}
+	}
+
+	&.branco {
+		background-color: #ffffff;
+		color: $cor1;
+		border-color: #ffffff;
+
+		i {
+			color: $cor1;
+		}
+
+		&:hover {
+			background-color: transparent;
+			border-color: #ffffff;
+			color: #ffffff;
+
+			i {
+				color: #ffffff;
+			}
+		}
+	}
+}
+
+
+
+// CORES
+.label {
+	&.vermelho {
+		background-color: $vermelho;
+	}
+
+	&.azul {
+		background-color: $azul;
+	}
+
+	&.laranja {
+		background-color: $laranja;
+	}
+}
+
+.cor1 {
+	color: $cor1;
+}
+
+.cor2 {
+	color: $cor2;
+}
+
+.cor3 {
+	color: $cor3;
+}
+
+.cor4 {
+	color: $cor4;
+}
+
+.verde-limao {
+	color: $verde-limao;
+}
+
+.cinza {
+	color: $cinza;
+}
+
+.laranja {
+	color: $laranja;
+}
+
+.lilas {
+	color: $lilas;
+}
+
+.verde-claro {
+	color: $verde-claro;
+}

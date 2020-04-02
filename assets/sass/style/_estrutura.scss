@@ -1,0 +1,301 @@
+html {
+	font-size: 100%; 
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	min-height: 100vh;
+	//max-width: 100%;
+	position: relative;
+	background: $bgclaro;
+
+	@include m420 {
+		padding-top: 130px;
+		//max-width: 100%;
+		//overflow: hidden;
+	}
+}
+
+body * {
+	font-family: $font-family;
+	color: $cor-txt;
+	line-height: $font-size+.25;
+	font-weight: $light;
+	font-size: $font-size; 
+}
+
+.container {
+	max-width: $width; 
+	width: 100%;//$width; 
+	//width: 100%;
+	padding: 0 $padding-container;
+	margin: 0 auto;
+	position: relative;
+	@include box-sizing;
+	@include clear;
+
+	@include m420 {
+		padding-right: 0;
+		padding-left: 0;
+		max-width: 100%;
+	}
+}
+
+.row {
+	display: block;
+	@include clear();
+
+	&:not(.no-padding){
+		margin-right: ($padding-col)*(-1);
+		margin-left: ($padding-col)*(-1);
+
+		[class*="col-"] {
+			padding-right: $padding-col; 
+			padding-left: $padding-col;
+		}
+	}
+
+	&.no-padding {
+		margin: 0;
+	}
+
+	[class*="col-"] {
+		float: left;
+		@include box-sizing();
+
+		img {
+			max-width: 100%;
+		}
+	}
+
+	@for $i from 1 through 12 {
+		.col-#{$i} {
+			width: $i*(100%/12);
+		}
+	}
+
+	@for $i from 1 through 12 {
+		.col-m-#{$i} {
+			margin-left: $i*(100%/12);
+		}
+	}
+
+	.col-4:nth-child(3n+1) {
+		@include clear;
+	}
+
+	&.row-mini {
+		margin-right: -15px;
+		margin-left: -15px;
+
+		[class*="col-"] {
+			padding-right: 15px; 
+			padding-left: 15px;
+		}
+	}
+
+	@include m420 {
+		&:not(.no-padding){
+			margin: 0;
+
+			[class*="col-"] {
+				width: 100%;
+				max-width: 100%;
+				padding-right: 0;
+				padding-left: 0;
+				margin-right: 0;
+				margin-left: 0;
+			}
+		}		
+	}
+}
+
+.box-content {
+	@include clear;
+	@include box-sizing();
+	width: 100%;
+	position: relative;
+	padding: 50px 0;
+
+	&.box-slide {
+		position: relative;
+		z-index: 0;
+		padding: 0;
+	}
+
+	.content {
+		width: 100%;
+		padding: 0 40px;
+		display: block;
+		margin: 40px auto 0;
+		@include box-sizing;
+
+		ul {
+			margin-top: 15px;
+			li {
+				font-size: 1.125rem;
+				line-height: 1.125rem;
+				font-style: italic;
+				color: darken($cor-txt, 20%);
+			}
+		}
+
+		p {
+			font-size: 1rem;
+			line-height: 1.5rem;
+			margin-top: 15px;
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+	}
+
+	//@include m420 {
+		&.first-section {
+			padding-top: 0px;
+		}
+	//}
+
+	@include m420 {
+		&.hide-mobile {
+			display: none;
+		}
+	}
+}
+
+.vertical-center {
+	display: table;
+	height: 100%;
+	width: 100%;
+
+	.content-vertical {
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+.conteudo-texto {
+	&.mini {
+		max-width: 650px;
+		margin: 0 auto;
+	}
+	ul, ol {
+		display: block;
+		padding: 15px 30px 25px;
+
+		li {
+			display: block;
+			padding-bottom: 5px;
+		}
+	}
+
+	ul {
+		li {
+			&:before {
+				content: '';
+				margin-right: 10px;
+				display: inline-block;
+				font-weight: bold;
+				border-radius: 50%;
+				background-color: #4a4a4a;
+				width: 7px;
+				height: 7px;
+				position: relative;
+				top: -1px;
+			}
+		}
+	}
+
+
+	ol {
+		padding-left: 46px;
+
+		li {
+			display: list-item;
+			text-align: -webkit-match-parent;
+			list-style-type: decimal;
+
+			&::marker {
+				font-weight: $bold;
+			}
+		}
+	}
+
+	p {
+		padding-bottom: 15px;
+
+		&:last-child {
+			padding-bottom: 0;
+		}
+
+		@include m420 {
+			padding-right: 40px;
+			padding-left: 40px;
+			text-align: left!important;
+		}
+	}
+
+	img, figure {
+		max-width: 100%;
+		height: auto;
+		width: auto;
+
+		&.size-full {
+			margin-left: -10%;
+			width: 120%;
+			max-width: none;
+
+			@include m420 {
+				margin-left: -12%;
+				width: 124%;
+			}
+
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+
+		&.aligncenter:not(.size-full) {
+			margin: 0 auto;
+			display: block;
+		}
+	}
+
+	&.full {
+		img {
+			width: 100%;
+		}
+	}
+
+	&.normal {
+		img {
+			width: auto;
+		}
+
+		@include m420 {
+			padding: 0 50px;
+		}
+	}
+
+	.item-list-prensa.video {
+		margin-top: 0;
+	}
+
+	@include m420 {
+		.link-mais {
+			padding: 0 50px;
+		}
+	}
+}
+
+
+.flex {
+	display: flex;
+
+	@include m420 {
+		display: block;
+	}
+}
