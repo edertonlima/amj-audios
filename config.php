@@ -1,8 +1,8 @@
 <?php
-	$servidor = 'localhost';
-	$name = 'audios-motivacionais';
-	$usuario = 'root';
+	$servidor = 'ederton.com.br/preview';
+	$name = 'amj-audios';
+	$usuario = '';
 	$senha = '';
-	$db = 'big90';
-	$url_base = 'http://'. $servidor . '/' . $name;
+	$db = '';
+	$url_base = 'https://'. $servidor . '/' . $name;
 ?>
