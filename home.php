@@ -81,7 +81,7 @@
 			</div>
 
 			<div class="col-3 sidebar">
-				<div class="container-sidebar">
+				<div class="container-sidebar scroll">
 					<div class="box-sidebar bg-branco">
 						<h3>Assuntos</h3>
 

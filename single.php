@@ -33,9 +33,9 @@
 
 						<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/671913383&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
 
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ullam vitae libero in elit cursus tempus consectetur adipiscing elit ullam vitae libero in elit cursus tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit ullam vitae libero in elit cursus tempus consectetur adipiscing elit ullam vitae libero in elit cursus tempus.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ullam vitae libero in elit cursus tempus consectetur adipiscing elit ullam vitae libero in elit cursus tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit ullam vitae libero in elit cursus tempus consectetur adipiscing elit ullam vitae libero in elit cursus tempus.</p>
 
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ullam vitae libero in elit cursus tempus consectetur adipiscing elit ullam vitae libero in elit cursus tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit ullam vitae libero in elit cursus tempus consectetur adipiscing elit ullam vitae libero in elit cursus tempus.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ullam vitae libero in elit cursus tempus consectetur adipiscing elit ullam vitae libero in elit cursus tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit ullam vitae libero in elit cursus tempus consectetur adipiscing elit ullam vitae libero in elit cursus tempus.</p>
 
 						<div class="assuntos">
 							<i class="fas fa-circle"></i>
@@ -101,7 +101,7 @@
 			</div>
 
 			<div class="col-3 sidebar">
-				<div class="container-sidebar">
+				<div class="container-sidebar scroll">
 
 					<?php /*
 					<div class="box-sidebar bg-branco">

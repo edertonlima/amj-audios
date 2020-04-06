@@ -1,0 +1,53 @@
+.table {
+	display: block;
+	margin: 0;
+	width: 100%;
+
+	.item-table {
+		width: 100%;
+		padding: 0 10px;
+		display: table;
+		border-bottom: 1px solid $bgclaro;
+		@include animacao;
+
+		&:last-child {
+			border: none;
+		}
+
+		&:not(.tit-table):hover {
+			background: rgba($bgclaro, .5);
+		}
+
+		span {
+			display: table-cell;
+			font-size: .85rem;
+			line-height: 40px;
+
+			a {
+				display: inline;
+				font-size: .85rem;
+
+				&:hover {
+					color: $cor1;
+				}
+			}
+
+			&.data {
+				width: 80px;
+			}
+
+			&.assunto {
+				width: 200px;
+			}
+		}
+
+		&.tit-table {
+			margin-bottom: 10px; 
+			border-width: 2px;
+
+			span {
+				font-weight: $bold;
+			}
+		}
+	}
+}

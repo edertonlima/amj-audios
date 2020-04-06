@@ -66,6 +66,46 @@
 			background-color: darken($vermelho, 10%);
 			border-color: darken($vermelho, 10%);
 		}
+
+		&.transparent {
+			color: $vermelho;
+			background: transparent;
+
+			&:hover {
+				background-color: $vermelho;
+				color: #ffffff;
+			}
+		}
+
+		&.inline {
+			border: none;
+			background: transparent;
+			color: $vermelho;
+
+			i {
+				color: $vermelho;
+				top: -1px;
+				font-size: 14px;				
+			}
+
+			&.off-cor {
+				color: $cor-txt;
+
+				i {
+					color: $cor-txt;
+				}
+			}
+
+			&:hover {
+				border: none;
+				background: transparent;
+				color: darken($vermelho, 2.5%);
+
+				i {
+					color: darken($vermelho, 2.5%);
+				}		
+			}
+		}
 	}
 
 	&.laranja {
@@ -131,8 +171,8 @@
 		}
 
 		&:hover {
-			background-color: darken($cor1, 10%);
-			border-color: darken($cor1, 10%);
+			background-color: darken($cor1, 2.5%);
+			border-color: darken($cor1, 2.5%);
 			color: #ffffff;
 		}
 
@@ -152,6 +192,36 @@
 				i {
 					color: #ffffff;
 				}
+			}
+		}
+
+		&.inline {
+			border: none;
+			background: transparent;
+			color: $cor1;
+
+			i {
+				color: $cor1;
+				top: -1px;
+				font-size: 14px;				
+			}
+
+			&.off-cor {
+				color: $cor-txt;
+
+				i {
+					color: $cor-txt;
+				}
+			}
+
+			&:hover {
+				border: none;
+				background: transparent;
+				color: darken($cor1, 2.5%);
+
+				i {
+					color: darken($cor1, 2.5%);
+				}		
 			}
 		}
 	}

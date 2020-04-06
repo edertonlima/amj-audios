@@ -10,7 +10,7 @@
 		//var_dump($url);
 		//var_dump(count($url));
 
-		if(count($url) == 1){
+		if(count($url) == 1){ 
 
 			// category
 			$page = 'category';
@@ -32,7 +32,14 @@
 					//var_dump($posts);
 
 				//}
+			}else{
+
+				// home
+				$page = 'home';
+				$template = 'page';
+
 			}
+
 		}
 	}else{
 
@@ -43,13 +50,12 @@
 	}
 
 	//var_dump($page);
-
 ?>
 
 
 <?php
 	//include 'menu.php';
-
+	
 	include $page . '.php';
 
 ?>

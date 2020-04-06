@@ -1,0 +1,168 @@
+form {
+
+	fieldset {
+		&:not(.textarea):not(.preview-embed):not(:last-child) {
+			border-bottom: 1px solid $bgclaro;
+			padding-bottom: 5px;
+		}
+
+		&.tit-form {
+			padding-bottom: 10px;
+
+			input, textarea {
+				font-size: 2rem;
+				line-height: 2.25rem;
+				font-weight: 700;
+				display: block;
+				clear: both;
+			}
+		}
+
+		&.preview-embed {
+			text-align: center;
+			margin-top: 10px;
+
+			i {
+				margin-top: 30px;
+			}
+		}
+
+		&.data {
+			width: 200px;
+		}
+	}
+
+	label {
+		padding: 0;
+		font-weight: $bold;
+	}
+
+	label, input, textarea {
+		font-size: 1rem;
+		line-height: 1.355rem;
+	}
+
+	input, textarea {
+		padding: 0;
+		margin-top: 10px;
+
+		@include placeholder{
+			opacity: .5;
+		}
+	}
+
+	input {
+		&.tag-assunto {
+			display: none;
+		}
+	}
+
+	.bootstrap-tagsinput {
+		.twitter-typeahead {
+			display: block;
+			width: 100%;
+		}
+
+		.tag {
+			background-color: $bgclaro;
+			border: 1px solid $bgclaro;
+			display: inline-block;
+			border-radius: 5px;
+			line-height: 24px;
+			padding: 0 10px;
+			font-size: .85rem;
+			text-transform: lowercase;
+			color: $cor-txt;
+			margin-top: 3px;
+			font-weight: $light;
+
+			span {
+				&:after {
+					content: "x";
+					padding: 5px;
+					cursor: pointer;
+					font-weight: $bold;
+					font-size: .85rem;
+				}
+
+				&:hover {
+					&:after {
+						color: $vermelho;
+					}
+				}
+			}
+		}
+	}
+
+	.btn-group > .btn {
+		border-color: $bgclaro;
+
+		&.active, &:hover {
+			border-color: $cor1;
+			background: transparent;
+			box-shadow: none;
+
+			i {
+				color: $cor1;
+			}
+		}
+	}
+	
+	.panel-default > .panel-heading {
+		background: transparent;
+		border: none;
+	}
+
+	.note-editor.note-airframe, .note-editor.note-frame {
+		border: none;
+	}
+
+	.note-editor.note-airframe .note-statusbar, .note-editor.note-frame .note-statusbar {
+		background: transparent;
+		border-color: $bgclaro;
+	}
+
+	.note-editor.note-airframe .note-placeholder, .note-editor.note-frame .note-placeholder {
+		opacity: .5;
+		color: $cor-txt;
+	}
+
+	.header-admin {
+		width: 100%;
+		overflow: hidden;
+		padding-bottom: 10px;
+		margin-bottom: 20px;
+		border-bottom: 1px solid $bgclaro;
+
+		.col-6:last-child {
+			text-align: right;
+		}
+
+		button {
+			font-weight: $light;
+		}
+	}
+}
+
+.input-ico {
+	position: relative;
+
+	i {
+		color: $cor1;
+		position: absolute;
+		font-size: 21px;
+		top: 17px;
+	}
+
+	&.left {
+		padding-left: 40px;
+		
+		i {
+			left: 10px;
+		}
+	}
+}
+
+.tooltip {
+	display: none!important;
+}

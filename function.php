@@ -21,7 +21,7 @@
 	
 	function get_template_directory_uri(){
 		global $url_base;
-		return $url_base;
+		return 'https://' . $url_base;
 	}
 
 

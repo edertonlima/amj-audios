@@ -2,9 +2,12 @@
 	position: relative;
 
 	.container-sidebar {
-		position: absolute;
-		top: 0;
 		//include animacao;
+
+		&.scroll {
+			position: absolute;
+			top: 0;
+		}
 
 		&.fixed {
 			position: fixed;

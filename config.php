@@ -1,8 +1,9 @@
 <?php
-	$servidor = 'ederton.com.br/preview';
-	$name = 'amj-audios';
+	$servidor = 'ederton.com.br';
+	$name = 'preview/amj-audios';
+	$url_base = $servidor . '/' . $name;
+
 	$usuario = '';
 	$senha = '';
 	$db = '';
-	$url_base = 'https://'. $servidor . '/' . $name;
 ?>

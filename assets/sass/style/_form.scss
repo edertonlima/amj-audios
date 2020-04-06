@@ -141,7 +141,7 @@ button, input[type='submit'], .button {
 	display: inline-block;
 	width: auto;
 	height: 35px;
-	line-height: 29px;
+	line-height: 32px;
 	padding: 0 15px;
 	font-weight: $regular; 
 	border-radius: 5px;
@@ -195,14 +195,20 @@ button, input[type='submit'], .button {
 		width: 100%;
 	}
 
-	&.inline {
+	/*&.inline {
 		height: auto;
 		line-height: normal;
-	}
+	}*/
 
 	&.ico-right {
 		i {
 			margin-left: 5px;
+		}
+	}
+
+	&.ico-left { 
+		i {
+			margin-right: 5px;
 		}
 	}
 }
