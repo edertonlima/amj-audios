@@ -13,6 +13,13 @@
 			position: fixed;
 			top: 50px;
 		}
+
+
+		@include m420{
+			top: 0!important;
+			position: relative!important;
+			margin-top: 20px;
+		}
 	}
 
 	.box-sidebar {

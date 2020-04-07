@@ -33,11 +33,11 @@
 							foreach ($posts as $row => $post) { ?>
 
 								<article class="audio item-list">
+									<div class="data"><?php the_data($post->data); ?></div>
 									<i class="fas fa-microphone-alt cor1"></i>
 									<a href="<?php the_link($post->id,$post->slug); ?>" title="<?php echo $post->titulo; ?> ">
 										<h2><?php echo $post->titulo; ?></h2>
 									</a>
-									<div class="data"><?php the_data($post->data); ?></div>
 
 									<div class="cont-list">
 										<a href="<?php the_link($post->id,$post->slug); ?>">

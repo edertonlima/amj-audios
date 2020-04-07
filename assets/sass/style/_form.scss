@@ -151,6 +151,11 @@ button, input[type='submit'], .button {
 	@include animacao;
 	@include box-sizing();
 
+
+	@include m420{
+		line-height: 29px;
+	}
+
 	i {
 		position: relative;
 		top: 0px;

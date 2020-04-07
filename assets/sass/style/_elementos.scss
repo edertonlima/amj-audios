@@ -20,6 +20,10 @@ h1 {
 	font-weight: $bold;
 	display: block;
 
+	@include m420{
+		padding-left: 30px;
+	}
+
 	&.logo {
 		width: 200px;
 		display: block;
@@ -32,6 +36,11 @@ h1 {
 		img {
 			width: 100%;
 		}
+
+		@include m420{
+			padding-left: 0px;
+		}
+
 	}
 }
 
@@ -42,6 +51,11 @@ h2 {
 	font-weight: $bold;
 	display: block;
 	@include clear;
+
+	@include m420{
+		line-height: 2rem;
+		font-size: 1.75rem;
+	}
 }
 
 h3 {
@@ -50,10 +64,8 @@ h3 {
 	line-height: 1.25rem;
 
 	@include m420 {
-		padding: 0;
-		text-align: center;
-		font-size: 2.25rem;
-		line-height: 2.25rem;
+		font-size: 1.5rem;
+		line-height: 1.5rem;
 	}
 }
 
