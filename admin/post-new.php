@@ -6,8 +6,12 @@
 
 	include 'sql/function.php';
 
-	$query = "SELECT * FROM `audio` WHERE `id` = {$_GET['post']} ";
-	$post = get_post($query)[0];
+	if(isset($_GET['post'])){
+		if(!empty($_GET['post'])){
+			$query = "SELECT * FROM `audio` WHERE `id` = {$_GET['post']} ";
+			$post = get_post($query)[0];
+		}
+	}
 ?>
 
 <?php get_header(); ?>
@@ -33,12 +37,12 @@
 					<form action="post_update.php" method="post" id="publicar">
 						<div class="header-admin">
 							<div class="col-6">
-								<a href="post-new.php?post=<?php echo $post->id; ?>" type="button" class="button cor1 inline off-cor ico-left"><i class="far fa-copy"></i>Duplicar</a>
+								<?php /*<a href="post-new.php?post=<?php echo $post->id; ?>" type="button" class="button cor1 inline off-cor ico-left"><i class="far fa-copy"></i>Duplicar</a> */ ?>
 							</div>
 							<div class="col-6">
-								<button type="button" class="excluir button vermelho inline off-cor ico-left"><i class="far fa-trash-alt"></i>Excluir</button>
+								<?php /*<button type="button" class="excluir button vermelho inline off-cor ico-left"><i class="far fa-trash-alt"></i>Excluir</button> */ ?>
 								<button type="submit" class="button cor1">Publicar</button>
-								<input type="hidden" name="id" value="<?php echo $post->id; ?>">
+								<input type="hidden" name="id" value="">
 							</div>
 						</div>
 						
@@ -48,7 +52,7 @@
 								<label for="">Data de publicação:</label>
 								<div class="input-ico left">
 									<i class="far fa-calendar-alt"></i>
-									<input type="text" name="data" class="datepicker" value="<?php the_data($post->data); ?>">
+									<input type="text" name="data" class="datepicker" value="<?php echo date('d/m/Y'); ?>">
 								</div>
 							</fieldset>
 
@@ -58,19 +62,19 @@
 
 							<fieldset class="tags-box">
 								<label for="">Tags de assuntos:</label>
-								<input type="text" name="assunto" class="tag-assunto" value="<?php echo get_assunto($post->id); ?>" data-role="tagsinput" />
+								<input type="text" name="assunto" class="tag-assunto" value="<?php if($post->id){ echo get_assunto($post->id); } ?>" data-role="tagsinput" />
 								<div class="preview-assuntos"></div>
 							</fieldset>
 
 							<fieldset class="textarea">
-								<textarea class="editor" name="editordata"><?php echo $post->texto; ?></textarea>
+								<textarea class="editor" name="editordata"><?php if($post->id){ echo $post->texto; } ?></textarea>
 							</fieldset>
 
 							<fieldset>
 								<label for="">Url do áudio soundcloud:</label>
 								<div class="input-ico left">
 									<i class="fas fa-link"></i>
-									<input type="text" name="url" class="url-embed" placeholder="https://soundcloud..." value="<?php echo $post->url; ?>">
+									<input type="text" name="url" class="url-embed" placeholder="https://soundcloud..." value="<?php //echo $post->url; ?>">
 								</div>
 							</fieldset>
 
@@ -174,36 +178,6 @@
 		$('.url-embed').change(function(){
 			url_embed();
 		});
-
-
-
-
-		// excluir categoria
-		$('.excluir').click(function(){
-			post_id = <?php echo $post->id; ?>;
-
-			$.ajax({
-				type: 'POST',
-				url: 'sql/function.php',
-				data: {
-					id:post_id,
-					action:'excluir_post'						
-				},
-
-				success: function(result){
-					if(result == 'ok'){
-
-						alertinfo('Áudio excluído com sucesso!','ok');
-						//$('#post_'+post_id).remove();
-
-						document.location.href = 'post.php';
-
-					}else{
-						alertinfo(result,'erro');
-					}
-				}
-			});
-    	});
 
 	});
 

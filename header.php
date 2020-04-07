@@ -189,7 +189,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");*/
 		<div class="container">
 
 			<h1 class="logo">
-				<a href="<?php echo get_home_url(); ?>" title="<?php //the_field('titulo', 'option'); ?>">
+				<a href="https://<?php echo get_home_url(); ?>" title="<?php //the_field('titulo', 'option'); ?>">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="<?php //the_field('titulo', 'option'); ?>">
 				</a>
 			</h1>

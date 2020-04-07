@@ -1,144 +1,170 @@
+<?php
+	include 'sql/function.php';
+	//global $slug;
+?>
+
 <?php get_header(); ?>
 
-<section class="box-content"> 
-	<div class="container">
+<?php 
 
-		<div class="row">
+	$query = "SELECT * FROM `audio` WHERE `slug` LIKE '{$slug}'";
+	$posts = get_post($query);
+	//var_dump($posts);
 
-			<div class="col-9">
-				<div class="audios">
+	if($posts){
+		foreach ($posts as $row => $post) { 
+			?>
 
-					<article class="audio item-det">
-						<i class="fas fa-microphone-alt cor1"></i>
-						<h1>
-							<?php
-								if($url[1] == 'use-a-merda-como-adubo'){
-									echo 'Use a merda como adubo!';
-								}
+			<section class="box-content"> 
+				<div class="container">
 
-								if($url[1] == 'ajudar-enriquece-mais'){
-									echo 'Ajudar, enriquece mais';
-								}
+					<div class="row">
 
-								if($url[1] == 'alface-com-talo'){
-									echo 'Alface com talo';
-								}
+						<div class="col-9">
+							<div class="audios">
 
-								if($url[1] == 'qual-e-o-seu-sonho'){
-									echo 'Qual e o seu sonho?';
-								}
-							?>
-						</h1>
-						<div class="data">30 de Março, 2020</div>
+								<article class="audio item-det">
+									<i class="fas fa-microphone-alt cor1"></i>
+									<h1><?php echo $post->titulo; ?></h1>
+									<div class="data"><?php the_data($post->data); ?></div>
+		
+		<?php
+			$url = $post->url;
 
-						<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/671913383&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+			$getValues=file_get_contents('http://soundcloud.com/oembed?format=js&url='.$url.'&iframe=true');
+			$decodeiFrame=substr($getValues, 1, -2);
+			$jsonObj = json_decode($decodeiFrame);
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ullam vitae libero in elit cursus tempus consectetur adipiscing elit ullam vitae libero in elit cursus tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit ullam vitae libero in elit cursus tempus consectetur adipiscing elit ullam vitae libero in elit cursus tempus.</p>
+			echo str_replace('height="400"', 'height="166"', $jsonObj->html);
+		?>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ullam vitae libero in elit cursus tempus consectetur adipiscing elit ullam vitae libero in elit cursus tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit ullam vitae libero in elit cursus tempus consectetur adipiscing elit ullam vitae libero in elit cursus tempus.</p>
+									<?php echo $post->texto; ?>
 
-						<div class="assuntos">
-							<i class="fas fa-circle"></i>
-							<a href="">cura</a>
-							<a href="">auto ajuda</a>
-						</div>
-
-						<div class="compartilhar">
-							<span>compartilhar: </span>
-							<a href=""><i class="fab fa-facebook-f"></i></a>
-							<a href=""><i class="fab fa-twitter"></i></a>
-							<a href=""><i class="fab fa-whatsapp"></i></a>
-						</div>
-
-					</article>
-
-				</div>
-
-				<div class="row">
-					<div class="ultimos-audios">
-
-						<div class="col-12">
-							<h3>Últimos Áudios</h3>	
-						</div>
-
-						<div class="col-6">		
-							<article class="audio item-det">
-								<i class="fas fa-microphone-alt cor1"></i>
-								<a href="<?php echo get_home_url(); ?>/auto-ajuda/qual-e-o-seu-sonho">
-									<h2>Qual é o seu sonho?</h2>
-								</a>
-								<div class="data">30 de Março, 2020</div>
-
-								<div class="cont-list">
 									<div class="assuntos">
 										<i class="fas fa-circle"></i>
-										<a href="">cura</a>
-										<a href="">autoajuda</a>
+											<?php 
+												$assuntos = get_assunto($post->id);
+												//var_dump($assuntos);
+
+												foreach ($assuntos as $key => $value) { //var_dump($value); ?>
+													<a href="<?php the_link_assunto($value->slug); ?>">
+														<?php echo $value->titulo; ?>
+													</a>
+												<?php }
+											?>
 									</div>
+
+									<div class="compartilhar" style="display: none;">
+										<span>compartilhar: </span>
+										<a href=""><i class="fab fa-facebook-f"></i></a>
+										<a href=""><i class="fab fa-twitter"></i></a>
+										<a href=""><i class="fab fa-whatsapp"></i></a>
+									</div>
+
+								</article>
+
+							</div>
+
+							<div class="row">
+								<div class="ultimos-audios">
+
+									<div class="col-12">
+										<h3>Últimos Áudios</h3>	
+									</div>
+
+
+									<?php
+										$query = "SELECT * FROM `audio` WHERE `slug` NOT LIKE '{$slug}' ORDER BY 'data' DESC LIMIT 2";
+										$posts = get_post($query);
+										//var_dump($posts);
+
+										foreach ($posts as $row => $post) { ?>
+
+											<div class="col-6">		
+												<article class="audio item-det">
+													<i class="fas fa-microphone-alt cor1"></i>
+													<a href="<?php the_link($post->id,$post->slug); ?>">
+														<h2><?php echo $post->titulo; ?></h2>
+													</a>
+													<div class="data"><?php the_data($post->data); ?></div>
+
+													<div class="cont-list">
+														<div class="assuntos">
+															<i class="fas fa-circle"></i>
+															<?php 
+																$assuntos = get_assunto($post->id);
+																//var_dump($assuntos);
+
+																foreach ($assuntos as $key => $value) { //var_dump($value); ?>
+																	<a href="<?php the_link_assunto($value->slug); ?>">
+																		<?php echo $value->titulo; ?>
+																	</a>
+																<?php }
+															?>
+														</div>
+													</div>
+												</article>
+											</div>
+
+										<?php }
+									?>
+
+
 								</div>
-							</article>
+							</div>
 						</div>
 
-						<div class="col-6">
-							<article class="audio item-det">
-								<i class="fas fa-microphone-alt cor1"></i>
-								<a href="<?php echo get_home_url(); ?>/auto-ajuda/alface-com-talo">
-									<h2>Alface com talo</h2>
-								</a>
-								<div class="data">30 de Março, 2020</div>
+						<div class="col-3 sidebar">
+							<div class="container-sidebar scroll">
 
-								<div class="cont-list">
+								<?php /*
+								<div class="box-sidebar bg-branco">
+									<form class="form-busca">
+										<fieldset>
+											<input type="text" name="" placeholder="O que você está procurando?">
+											<button><i class="fas fa-search"></i></button>
+										</fieldset>
+									</form>
+								</div>
+								*/ ?>
+
+								<div class="box-sidebar bg-branco">
+									<h3>Assuntos</h3>
+
 									<div class="assuntos">
-										<i class="fas fa-circle"></i>
-										<a href="">cura</a>
-										<a href="">autoajuda</a>
+										<?php 
+											$assuntos = get_assunto();
+											//var_dump($assuntos);
+
+											foreach ($assuntos as $key => $value) { //var_dump($value); ?>
+												<a href="<?php the_link_assunto($value->slug); ?>">
+													<?php echo $value->titulo; ?>
+												</a>
+											<?php }
+										?>
 									</div>
 								</div>
-							</article>
+
+								<div class="box-sidebar bg-cor1">
+									<h3>Deseja pedir um áudio motivacional?</h3>
+									<button class="button branco ico-right margin-top-20">Solicitar <i class="fas fa-chevron-right"></i></button>
+								</div>
+							</div>
 						</div>
+
 					</div>
+
 				</div>
-			</div>
+			</section>
 
-			<div class="col-3 sidebar">
-				<div class="container-sidebar scroll">
+		<?php }
+	}else{
 
-					<?php /*
-					<div class="box-sidebar bg-branco">
-						<form class="form-busca">
-							<fieldset>
-								<input type="text" name="" placeholder="O que você está procurando?">
-								<button><i class="fas fa-search"></i></button>
-							</fieldset>
-						</form>
-					</div>
-					*/ ?>
+		$page = 'https://'. get_home_url();
+		header("Location: {$page}"); 
 
-					<div class="box-sidebar bg-branco">
-						<h3>Assuntos</h3>
-
-						<div class="assuntos">
-							<a href="">cura</a>
-							<a href="">autoajuda</a>
-							<a href="">entretenimento</a>
-							<a href="">financeiro</a>
-							<a href="">felicidade</a>
-							<a href="">cancer de fígado</a>
-							<a href="">vida</a>
-						</div>
-					</div>
-
-					<div class="box-sidebar bg-cor1">
-						<h3>Deseja pedir um áudio motivacional?</h3>
-						<button class="button branco ico-right margin-top-20">Solicitar <i class="fas fa-chevron-right"></i></button>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-	</div>
-</section>
+	}
+?>
 
 
 <?php get_footer(); ?>

@@ -1,0 +1,26 @@
+#alertinfo {
+	position: fixed;
+	bottom: 10px;
+	right: -300px;
+	max-width: 300px;
+	background: #ffffff;
+	padding: 10px 20px;
+	font-weight: $regular;
+	opacity: 0;
+	@include animacao;
+
+	&.ok {
+		background: rgba($verde, .1);
+		color: $verde;
+	}
+
+	&.erro {
+		background: rgba($vermelho, .1);
+		color: $vermelho;
+	}
+
+	&.on {
+		right: 0;
+		opacity: 1;
+	}
+}

@@ -14,8 +14,9 @@
 
 			// category
 			$page = 'category';
-			$category = get_category($url[0]);
-			$posts = get_posts($category->id);
+			$slug = $url[0];
+			//$category = get_category($url[0]);
+			//$posts = get_posts($category->id);
 			//var_dump($category);
 			//var_dump($posts);
 
@@ -26,7 +27,8 @@
 					
 					// single
 					$page = 'single';
-					$template = 'single';		
+					$template = 'single';
+					$slug = $url[1];	
 					//$category = get_category($url[0]);
 					//$posts = get_post($code_post[1]);
 					//var_dump($posts);

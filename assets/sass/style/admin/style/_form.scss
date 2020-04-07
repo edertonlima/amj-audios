@@ -30,6 +30,26 @@ form {
 		&.data {
 			width: 200px;
 		}
+
+		&.tags-box {
+			/*position: relative;
+
+			.preview-assuntos {
+				background: lighten($bgclaro, 3%);
+				position: absolute;
+				top: 105px;
+				width: 100%;
+				@include box-sizing;
+				z-index: 999;
+
+				span {
+					display: block;
+					padding: 10px 15px;
+					font-size: .85rem;
+					cursor: pointer;
+				}
+			}*/
+		}
 	}
 
 	label {

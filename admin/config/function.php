@@ -55,4 +55,10 @@
 				'</ul>' .
 			'</div>';
 	}
+
+	// formato data
+	function the_data($data){
+		$data = date_create($data);
+		echo $data->format('d/m/Y');
+	}
 ?>

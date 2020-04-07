@@ -11,9 +11,9 @@
 					<a href="post-new.php">Novo Áudio</a>
 				</li>
 
-				<li>
+				<?php /*<li>
 					<a href="">Assuntos</a>
-				</li>
+				</li>*/?>
 			</ul>
 		</li>
 	</ul>

@@ -16,38 +16,6 @@
 		}
 	}
 
-	// conexão de banco
-	function get_login($email,$senha){
-		global $mysqli;
-
-		$query = "SELECT * FROM `usuario` WHERE (`email` = '$email') AND (`senha` = '$senha')";
-		$result = $mysqli->query($query);
-		$row = mysqli_fetch_object($result);
-
-		if(mysqli_num_rows($result)){
-			//echo 'OK';
-
-			$_SESSION['login'] = true;
-			$_SESSION['id_usuario'] = '2';
-			$_SESSION['nome_usuario'] = 'Ederton Lima';
-			$_SESSION['login-msg'] = '';
-			return true;
-
-		}else{
-
-			unset( $_SESSION );
-			$_SESSION['login'] = false;
-			$_SESSION['login-msg'] = 'Usuário ou senha inválida';
-			return false;
-		}
-
-		//var_dump($row);
-
-		$result->close();
-		//mysqli_close($mysqli);
-	}
-	//get_login('edertton@gmail.com','M0needer!@');
-
 
 	function get_post($query){
 		global $mysqli;
@@ -75,16 +43,20 @@
 	}
 
 
-	function get_assunto($id){
+	function get_assunto($id=''){
 		global $mysqli;
 
-		$query = "SELECT `assunto`.`titulo`, `assunto`.`slug` FROM `assunto` 
-			INNER JOIN audio_assunto 
-			ON `assunto`.`id` = `audio_assunto`.`assunto` 
-					
-			WHERE `audio_assunto`.`audio` = {$id} 
+		if($id != ''){
+			$query = "SELECT `assunto`.`titulo`, `assunto`.`slug` FROM `assunto` 
+				INNER JOIN audio_assunto 
+				ON `assunto`.`id` = `audio_assunto`.`assunto` 
+						
+				WHERE `audio_assunto`.`audio` = {$id} 
 
-			ORDER BY `assunto`.`titulo` ASC";
+				ORDER BY `assunto`.`titulo` ASC";
+		}else{
+			$query = "SELECT * FROM `assunto` ORDER BY RAND()";
+		}
 
 
 		$result = $mysqli->query($query);
@@ -99,14 +71,12 @@
 
 			}
 
-			foreach ( $assuntos as $key => $assunto ) {
-				echo strtolower($assunto->titulo);
-				if (next( $assuntos )){
-					echo ', ';
-				}
-			}
+			/*foreach ( $assuntos as $key => $assunto ) {
+				echo '<a href="javascript:">'.strtolower($assunto->titulo) . '</a> ';
+			}*/
 		}
-
+ 		
+ 		return $assuntos;
 		$result->close();
 	}
 
@@ -147,25 +117,32 @@
 	}
 
 
-	function excluir_post($id){
+	function the_title_assunto_slug($slug){
 		global $mysqli;
 
-		$query = "DELETE FROM `audio` WHERE `audio`.`id` = '{$id}'";
-		if ($mysqli->query($query) === TRUE) {
-	
-			$query_delete = "DELETE FROM `audio_assunto` WHERE `audio_assunto`.`audio` = '{$id}'";
-			if ($mysqli->query($query_delete) === TRUE) {
-				
-			}
-			
-			echo 'ok';
+		//echo $query = "SELECT 'titulo' FROM `assunto` WHERE 'slug' = '{$slug}' ";
+		$query = "SELECT * FROM `assunto` WHERE `slug` = '{$slug}'";
 
-		}else{
-			echo 'Desulpe, não foi possível excluir o áudio.';
-			
+		$result = $mysqli->query($query);
+		$row = mysqli_fetch_object($result);
+
+		if(mysqli_num_rows($result)){
+
+			$result = $mysqli->query($query);
+			while ($row = $result->fetch_object()){
+
+				$assuntos[] = $row;
+
+			}
 		}
 
-		$mysqli->close();
+		$result->close();
+
+		//var_dump($assuntos);
+
+		echo $assuntos[0]->titulo;
+		
+
 	}
 
 ?>

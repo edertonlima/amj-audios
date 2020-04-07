@@ -21,13 +21,14 @@
 		<span></span>
 	</button>
 
-	
+	<div id="alertinfo">Desulpe, não foi possível excluir o áudio.</div>
 
 	<?php wp_footer(); ?>
 
 	<!--<script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery-3.2.1.slim.min.js"></script>-->
 	<!--<script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery-3.3.1.min.js"></script>-->
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<!--<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>-->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/assets/js/popper.min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/assets/js/bootstrap.min.js"></script>
 
@@ -75,6 +76,16 @@
 			});
 
 		});
+
+		function alertinfo($msg,$class){
+
+			$('#alertinfo').html('').removeClass('on erro ok');
+			$('#alertinfo').html($msg).addClass('on '+$class);
+
+			setTimeout(function(){ 
+				$('#alertinfo').html('').removeClass('on '+$class);
+			}, 3000);
+		};
 		
 	</script>
 

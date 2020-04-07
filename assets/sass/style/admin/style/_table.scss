@@ -5,7 +5,7 @@
 
 	.item-table {
 		width: 100%;
-		padding: 0 10px;
+		padding: 5px 5px;
 		display: table;
 		border-bottom: 1px solid $bgclaro;
 		@include animacao;
@@ -16,12 +16,18 @@
 
 		&:not(.tit-table):hover {
 			background: rgba($bgclaro, .5);
+
+			.links {
+				opacity: 1;
+			}
 		}
 
 		span {
 			display: table-cell;
+			vertical-align: middle;
 			font-size: .85rem;
 			line-height: 40px;
+			padding: 0 5px;
 
 			a {
 				display: inline;
@@ -32,12 +38,50 @@
 				}
 			}
 
+			&.box-titulo {
+				//display: table;
+				//width: 100%;
+
+				.titulo, .links {
+					display: table-cell;
+					vertical-align: middle;
+				}
+
+				.titulo {
+					font-size: .95rem;
+					line-height: 1.125rem;
+					font-weight: $regular;
+				}
+
+				.links {
+					width: 135px;
+					padding-left: 10px;
+					opacity: 0;
+					@include animacao;
+
+					a {
+						font-size: .75rem;
+						margin-right: 3px;
+
+						&.excluir {
+							color: $vermelho;
+							margin-right: 0px;
+
+							&:hover {
+								color: darken($vermelho, 5%);
+							}
+						}
+					}
+				}
+			}
+
 			&.data {
 				width: 80px;
 			}
 
 			&.assunto {
 				width: 200px;
+				line-height: 1rem;
 			}
 		}
 
