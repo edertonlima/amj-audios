@@ -147,7 +147,9 @@
 
 								<div class="box-sidebar bg-cor1">
 									<h3>Deseja pedir um áudio motivacional?</h3>
-									<button class="button branco ico-right margin-top-20">Solicitar <i class="fas fa-chevron-right"></i></button>
+									<a data-fancybox href="#solicitacao" class="button branco ico-right margin-top-20">
+										Solicitar <i class="fas fa-chevron-right"></i>
+									</a>
 								</div>
 							</div>
 						</div>

@@ -51,6 +51,11 @@
 
 	}
 
+	if($_GET['p']){
+		$page = 'search';
+		$template = 'search';
+	}
+
 	//var_dump($page);
 ?>
 

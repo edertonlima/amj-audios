@@ -16,5 +16,11 @@
 				</li>*/?>
 			</ul>
 		</li>
+
+		<li>
+			<a href="solicitacoes.php" class="menu-area">
+				<i class="fas fa-comment-medical"></i> Solicitações
+			</a>
+		</li>
 	</ul>
 </nav>

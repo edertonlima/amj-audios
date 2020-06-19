@@ -1,7 +1,14 @@
 form {
-	margin: 0 auto;
 	@include box-sizing;
 	@include clear();
+
+	&:not(.form-busca){
+		margin: 20px auto 0;
+	}
+
+	&.form-search {
+		margin-top: 20px;
+	}
 
 	.obs {
 		font-size: .9rem;
@@ -20,7 +27,7 @@ form {
 		font-size: .85rem; 
 		color: $cor-txt;
 		font-weight: $light;
-		line-height: 36px;
+		line-height: 40px;
 		background-color: #ffffff;
 		padding: 0 20px;
 		font-style: normal;
@@ -34,14 +41,15 @@ form {
 	}
 
 	input[type='text'], input[type='email'], input[type='password'] {
-		height: 36px;		
+		height: 40px;		
 	}
 
 	textarea {
 		padding-top: 10px;
 		padding-bottom: 10px;
-		height: 110px;
+		height: 80px;
 		resize: vertical;
+		line-height: 1.25rem;
 	}
 
 	label {
@@ -54,7 +62,7 @@ form {
 	}
 
 	fieldset {
-		margin-top: 30px;
+		margin-top: 15px;
 		width: 100%;
 		float: left;
 		//clear: both;
@@ -128,6 +136,16 @@ form {
 
 		@include m420 {
 			padding: 0 50px;
+		}
+	}
+
+	.legenda {
+		padding: 10px;
+		display: block;
+		line-height: 1.25rem;
+
+		strong {
+			padding-bottom: 5px;
 		}
 	}
 }
@@ -216,6 +234,19 @@ button, input[type='submit'], .button {
 			margin-right: 5px;
 		}
 	}
+
+	&.enviar {
+		height: 40px;
+		line-height: 40px;
+		color: #ffffff;
+		border-color: #ffffff;
+
+		&:hover {
+			background-color: #ffffff;
+
+			color: $cor1;
+		}
+	}
 }
 
 .select {
@@ -279,7 +310,7 @@ input::-webkit-input-placeholder {
 .msg-form {
 	display: block;
 	font-size: 1rem;
-	margin-bottom: 20px;
+	margin-bottom: 0px;
 	font-weight: $regular;
 	color: $cor1;
 
@@ -293,11 +324,11 @@ input::-webkit-input-placeholder {
 	}
 
 	&.erro {
-		//color: $vermelho;
+		//color: $vermelho!important;
 	}
 
 	&.ok {
-		//color: $verde;
+		//color: $cor1!important;
 	}
 }
 

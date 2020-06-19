@@ -10,9 +10,12 @@
 		<div class="row">
 
 			<div class="col-9">
-				<form action="https://<?php echo get_home_url(); ?>" method="get" class="form-busca">
+				<span>Sua busca:</span>
+				<h1><?php echo $_GET['p']; ?></h1>
+
+				<form action="https://<?php echo get_home_url(); ?>" method="get" class="form-busca form-search">
 					<fieldset>
-						<input type="text" name="p" placeholder="O que você está procurando?">
+						<input type="text" name="p" value="<?php echo $_GET['p']; ?>" placeholder="O que você está procurando?">
 						<button><i class="fas fa-search"></i></button>
 					</fieldset>
 				</form>
@@ -20,44 +23,80 @@
 				<div class="audios">
 
 					<?php 
-						$query = "SELECT * FROM `audio` ORDER BY `data` DESC";
+						$busca = $_GET['p'];
+						$array_busca = array('alfae','pense');
+						$array1 = 'alface';
+						$array2 = 'pense';
+
+						$string_busca = $busca;
+						$array_busca = (explode(" ",$string_busca));
+
+						$query = "SELECT DISTINCT `audio`.`id`, `audio`.`titulo`, `audio`.`texto`, `audio`.`data`, `audio`.`slug` FROM `audio` 
+						INNER JOIN `audio_assunto` 
+							ON `audio_assunto`.`audio` = `audio`.`id` 
+
+						INNER JOIN `assunto` 
+							ON `assunto`.`id` = `audio_assunto`.`assunto` ";
+
+						foreach ($array_busca as $key => $value) {
+							if($key == 0){
+								$query .= "WHERE (`audio`.`titulo` like '%{$value}%') OR (`audio`.`texto` like '%{$value}%') ";
+							}else{
+								$query .= "OR (`audio`.`titulo` like '%{$value}%') OR (`audio`.`texto` like '%{$value}%') ";
+							}
+						}
+
+						$query .= "ORDER BY `audio`.`data` DESC";
+						
+						//echo $query;
 						//$query = "SELECT * FROM `audio` ORDER BY `data` DESC LIMIT 5";
 						$posts = get_post($query);
 						//var_dump($posts);
 
-						foreach ($posts as $row => $post) { ?>
+						if($posts){
+							foreach ($posts as $row => $post) { ?>
 
-							<article class="audio item-list">
-								<div class="data"><?php the_data($post->data); ?></div>
-								<i class="fas fa-microphone-alt cor1"></i>
-								<a href="<?php the_link($post->id,$post->slug); ?>" title="<?php echo $post->titulo; ?> ">
-									<h2><?php echo $post->titulo; ?></h2>
-								</a>
-
-								<div class="cont-list">
-									<a href="<?php the_link($post->id,$post->slug); ?>">
-										<p><?php the_resumo($post->texto); ?> </p>
+								<article class="audio item-list">
+									<div class="data"><?php the_data($post->data); ?></div>
+									<i class="fas fa-microphone-alt cor1"></i>
+									<a href="<?php the_link($post->id,$post->slug); ?>" title="<?php echo $post->titulo; ?> ">
+										<h2><?php echo $post->titulo; ?></h2>
 									</a>
-									<div class="assuntos">
-										<i class="fas fa-circle"></i>
 
-										<?php 
-											$assuntos = get_assunto($post->id);
-											//var_dump($assuntos);
+									<div class="cont-list">
+										<a href="<?php the_link($post->id,$post->slug); ?>">
+											<p><?php the_resumo($post->texto); ?> </p>
+										</a>
+										<div class="assuntos">
+											<i class="fas fa-circle"></i>
 
-											foreach ($assuntos as $key => $value) { //var_dump($value); ?>
-												<a href="<?php the_link_assunto($value->slug); ?>">
-													<?php echo $value->titulo; ?>
-												</a>
-											<?php }
-										?>
+											<?php 
+												$assuntos = get_assunto($post->id);
+												//var_dump($assuntos);
+
+												foreach ($assuntos as $key => $value) { //var_dump($value); ?>
+													<a href="<?php the_link_assunto($value->slug); ?>">
+														<?php echo $value->titulo; ?>
+													</a>
+												<?php }
+											?>
+
+										</div>
+										<a href="<?php the_link($post->id,$post->slug); ?>" class="button ico-right cor1 transparent">ouvir áudio <i class="fas fa-chevron-right"></i></a>
+									</div>
+								</article>
+
+							<?php }
+						}else{ ?>
+
+								<article class="audio item-list">
+									<div class="cont-list">
+										<p>Nenhum áudio encontrado.</p>
 
 									</div>
-									<a href="<?php the_link($post->id,$post->slug); ?>" class="button ico-right cor1 transparent">ouvir áudio <i class="fas fa-chevron-right"></i></a>
-								</div>
-							</article>
+								</article>
 
-						<?php }
+						<? }
 					?>
 
 				</div>

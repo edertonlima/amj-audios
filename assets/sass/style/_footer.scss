@@ -7,9 +7,96 @@
 		//display: none;
 		font-size: .85rem;
 		line-height: 1rem;
+
+		&.center {
+			text-align: center;
+			margin-bottom: 30px;
+			display: block;
+
+			.whatsapp {
+				display: block;
+			}
+
+			a {
+				display: inline-block;
+				margin: 3px auto;
+
+				&.tel {
+					font-size: 1.125rem;
+					font-weight: $bold;
+
+					i {
+						font-size: 1.125rem;
+					}
+				}
+
+				&:hover {
+					color: $cor1;
+
+					i {
+						color: $cor1;
+					}
+				}
+			}
+		}
+
+		@include m420 {
+			text-align: center;
+			display: block;
+		}
+	}
+
+	@include m420 {
+		.col-9 {
+			max-width: 100%;
+			width: 100%;
+		}
 	}
 }
 
 #goTop {
 	display: none;
+}
+
+#solicitacao {
+	max-width: 750px;
+	display: none;
+
+	h2, p, strong {
+		color: #ffffff;
+	}
+
+	h2 {
+		margin-bottom: 20px;
+	}
+
+	strong {
+		padding-top: 10px;
+	}
+}
+
+.fancybox-container .fancybox-content {
+	background: transparent;
+}
+
+.fancybox-container.fancybox-is-open .fancybox-bg {
+	background-color: $cor1;
+	opacity: 1;
+}
+
+.fancybox-container .fancybox-button {
+	width: 70px;
+	height: 70px;
+
+	svg path {
+		color: #ffffff;
+	}
+
+	&:hover {
+		background-color: #ffffff;
+
+		svg path {
+			color: $cor1;
+		}
+	}
 }

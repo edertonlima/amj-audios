@@ -13,7 +13,7 @@
 @import 'style/_estrutura';
 @import 'style/_elementos'; 
 @import 'style/_form';
-//@import 'style/_modal';
+@import 'style/_modal';
 @import 'style/_nav';
 //@import 'style/_slide';
 @import 'style/_header';
@@ -31,5 +31,5 @@
 @import 'style/page/_archive'; 
 
 // paginas especíicas
-@import 'style/page/_home'; 
+@import 'style/page/_home';  
 //@import 'style/page/_contato';
