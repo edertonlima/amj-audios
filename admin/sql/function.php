@@ -168,4 +168,55 @@
 		$mysqli->close();
 	}
 
+
+	function excluir_solicitacao($id){
+		global $mysqli;
+
+		$query = "DELETE FROM `solicitacoes` WHERE `solicitacoes`.`id` = '{$id}'";
+		if ($mysqli->query($query) === TRUE) {
+			
+			echo 'ok';
+
+		}else{
+			echo 'Desulpe, não foi possível excluir a solicitacao.';
+			
+		}
+
+		$mysqli->close();
+	}
+
+
+	function check_row_true($id){
+		global $mysqli;
+
+		$query = "UPDATE `solicitacoes` SET `status` = 1 WHERE `id` = '{$id}'";
+		if ($mysqli->query($query) === TRUE) {
+			
+			echo 'ok';
+
+		}else{
+			echo 'Desulpe, não foi possível alterar a solicitacao.';
+			
+		}
+
+		$mysqli->close();
+	}
+
+
+	function check_row_false($id){
+		global $mysqli;
+
+		$query = "UPDATE `solicitacoes` SET `status` = 0 WHERE `id` = '{$id}'";
+		if ($mysqli->query($query) === TRUE) {
+			
+			echo 'ok';
+
+		}else{
+			echo 'Desulpe, não foi possível alterar a solicitacao.';
+			
+		}
+
+		$mysqli->close();
+	}
+
 ?>

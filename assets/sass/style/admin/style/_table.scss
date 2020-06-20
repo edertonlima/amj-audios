@@ -59,6 +59,10 @@
 					opacity: 0;
 					@include animacao;
 
+					&.links-small {
+						width: auto;
+					}
+
 					a {
 						font-size: .75rem;
 						margin-right: 3px;
@@ -72,6 +76,25 @@
 							}
 						}
 					}
+				}
+			}
+
+			&.check {
+				width: 35px;
+
+				i {
+					font-size: 1.35rem;
+					position: relative;
+					top: 3px;
+				}
+			}
+
+			&.dados-user {
+				width: 250px;
+
+				span {
+					display: block;
+					line-height: normal;
 				}
 			}
 
@@ -91,6 +114,16 @@
 
 			span {
 				font-weight: $bold;
+			}
+		}
+
+		&.off {
+			opacity: .5;
+
+			&:not(.tit-table):hover {
+				.links {
+					display: none;
+				}
 			}
 		}
 	}

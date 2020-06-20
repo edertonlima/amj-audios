@@ -28,8 +28,20 @@
 	$conteudo .= '</p>';
 	if(mail($para, $nome_site, $conteudo, $headers, "-f$email_remetente")){
 		//mail('edertton@gmail.com', "Contato, Fale Conosco", $conteudo, $headers, "-f$email_remetente");
-		//mail('pablo@di20.com.br', "Contato, Fale Conosco", $conteudo, $headers, "-f$email_remetente");
-		echo(json_encode('ok'));
+
+		include 'sql/login_db.php';
+		global $mysqli;
+
+		$data = date('y-m-d');
+
+		$query = "INSERT INTO `solicitacoes` (`id`,`assunto`,`nome`,`telefone`,`email`,`data`,`status`) VALUES (NULL,'{$mensagem}','{$nome}','{$telefone}','{$email}','{$data}','1')";
+
+		if ($mysqli->query($query) === TRUE) {
+			echo(json_encode('ok'));
+		}else{
+			echo(json_encode("Desculpe, não foi possível enviar a sua solicitação. <br>Por favor, tente novamente mais tarde."));
+		}
+
 	}else{
 		echo(json_encode("Desculpe, não foi possível enviar a sua solicitação. <br>Por favor, tente novamente mais tarde."));
 	}
