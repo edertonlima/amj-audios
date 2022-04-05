@@ -6,7 +6,7 @@
 	$mensagem = $_GET['mensagem'];
 
 	$nome_site = 'Áudios Motivacionais';
-	$para = 'edertton@gmail.com';
+	$para = 'blogdoaltivo@gmail.com';
 
 	$email_remetente = 'site@ederton.com.br';
 

@@ -2,8 +2,9 @@ form {
 
 	fieldset {
 		&:not(.textarea):not(.preview-embed):not(:last-child) {
-			border-bottom: 1px solid $bgclaro;
+			border-bottom: 1px solid darken($bgclaro, 10%);
 			padding-bottom: 5px;
+			margin-bottom: 30px;
 		}
 
 		&.tit-form {
@@ -27,9 +28,9 @@ form {
 			}
 		}
 
-		&.data {
-			width: 200px;
-		}
+		//&.data {
+			//width: 200px;
+		//}
 
 		&.tags-box {
 			/*position: relative;
@@ -143,7 +144,7 @@ form {
 	}
 
 	.note-editor.note-airframe .note-placeholder, .note-editor.note-frame .note-placeholder {
-		opacity: .5;
+		opacity: 1;
 		color: $cor-txt;
 	}
 

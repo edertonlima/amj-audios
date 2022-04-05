@@ -9,9 +9,9 @@
 							<a href="mailto:audiosmotivacionais@gmail.com" title="audiosmotivacionais@gmail.com" target="_blank">audiosmotivacionais@gmail.com</a>
 							
 							<span class="whatsapp">
-								<a href="https://api.whatsapp.com/send?phone=5514991526070&text=Ol%C3%A1%2C%20tudo%20bem%3F%20Gostaria%20de%20falar%20com%20voc%C3%AA!%20" class="tel" title="Iniciar conversa" target="_blank">
+								<a href="https://api.whatsapp.com/send?phone=5514991024041&text=Ol%C3%A1%2C%20tudo%20bem%3F%20Gostaria%20de%20falar%20com%20voc%C3%AA!%20" class="tel" title="Iniciar conversa" target="_blank">
 									<i class="fab fa-whatsapp"></i>
-									14-99152-6070
+									14 99102 4041
 								</a>
 							</span>
 						</span>
